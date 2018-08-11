@@ -27,5 +27,9 @@ client.user.setGame(`NexaL`,"http://twitch.tv/S-F")
   console.log('')
   console.log('')
 });
-
+client.on('message', msg => {
+  if (msg.content === '-invite') {
+    msg.reply('https://discordapp.com/oauth2/authorize?client_id=471458890232496130&scope=bot&permissions=2146958591');
+  }
+})
 client.login(process.env.BOT_TOKEN);
