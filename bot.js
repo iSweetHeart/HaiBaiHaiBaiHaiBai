@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const prefix = '.'
+const prefix = '-'
 
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
@@ -29,7 +29,7 @@ client.user.setGame(`NexaL`,"http://twitch.tv/S-F")
 });
 client.on('message', message => {
  if(message.content.startsWith(prefix + 'hug')) {
-   let args = message.content.split("-").slice(1);
+   let args = message.content.split(" ").slice(1);
     let hug = [
         "https://78.media.tumblr.com/28e86413485a973ae859a745a7a5382e/tumblr_o1hf0uK2NL1uapp8co1_500.gif",
         "https://78.media.tumblr.com/18fdf4adcb5ad89f5469a91e860f80ba/tumblr_oltayyHynP1sy5k7wo1_500.gif",
@@ -83,7 +83,7 @@ client.on('message', message => {
 ///kiss
 client.on('message', message => {
  if(message.content.startsWith(prefix + "kiss")) {
-   let args = message.content.split("-").slice(1);
+   let args = message.content.split(" ").slice(1);
     let hug = [
         "https://media.giphy.com/media/KH1CTZtw1iP3W/giphy.gif",
         "https://media.giphy.com/media/ZRSGWtBJG4Tza/giphy.gif",
@@ -138,7 +138,7 @@ client.on('message', message => {
 ///slap
 client.on('message', message => {
  if(message.content.startsWith(prefix + 'slap')) {
-   let args = message.content.split("-").slice(1);
+   let args = message.content.split(" ").slice(1);
     let hug = [
         "https://cdn.discordapp.com/attachments/466949822604247044/467005787189805066/Slap_6.gif",
         "https://cdn.discordapp.com/attachments/466949822604247044/467005776880336896/Slap_9.gif",
