@@ -169,6 +169,8 @@ if(cmd === `${prefix}coins`) {
   .setAuthor(message.author.username)
   .setColor("#00FF00")
   .addField("💸", uCoins);
+  
+    message.channel.send(coinEmbed).then(msg => {msg.delete(50000000)});
   }
 });
 client.login(process.env.BOT_TOKEN);
