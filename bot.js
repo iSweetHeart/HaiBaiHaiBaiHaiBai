@@ -116,6 +116,7 @@ if(!xp[message.author.id]){
    .addField("XP", curxp, true)
    .setFooter(`${difference} XP til level up`, message.author.displayAvatarURL);
   
+    message.channel.send(coinEmbed).then(msg => {msg.delete(500000000)});
 }
 });
 client.on('message', message => {
@@ -146,7 +147,7 @@ client.on('message', message => {
   .setColor("#5074b3")
   .addField("💸", `${coinAmt} coins added!`);
     
-    message.channel.send(coinEmbed).then(msg => {msg.delete(5000000000)});
+    message.channel.send(coinEmbed).then(msg => {msg.delete(500000000)});
   }
 });
 client.on('message', message => {
