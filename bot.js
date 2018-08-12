@@ -94,7 +94,7 @@ client.on('message', message => {
     let messageArray = message.content.split(" ");
     let cmd = messageArray[0];
     let args = messageArray.slice(0);
-    let prefix = '-';
+    let prefix = '!!';
     let xp = require("./xp.json");
     
 if(cmd === `${prefix}level`) {
@@ -111,12 +111,12 @@ if(!xp[message.author.id]){
  
    let lvlEmbed = new Discord.RichEmbed()
    .setAuthor(message.author.username)
-   .setColor("#6d00ad")
+   .setColor("#6541a3")
    .addField("Level", curlvl, true)
    .addField("XP", curxp, true)
    .setFooter(`${difference} XP til level up`, message.author.displayAvatarURL);
-  
-    message.channel.send(coinEmbed).then(msg => {msg.delete(500000000)});
+ 
+   message.channel.send(lvlEmbed).then(msg => {msg.delete(5000)});
 }
 });
 client.on('message', message => {
