@@ -176,7 +176,6 @@ if(cmd === `${prefix}coins`) {
     message.channel.send(coinEmbed).then(msg => {msg.delete(500000000)});
   }
 });
-const client = new Discord.Client();
 const ytdl = require('ytdl-core');
 const request = require('request');
 const fs = require('fs');
