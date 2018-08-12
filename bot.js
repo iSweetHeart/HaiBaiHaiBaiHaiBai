@@ -145,7 +145,6 @@ client.on('message', message => {
   .setAuthor(message.author.username)
   .setColor("#5074b3")
   .addField("💸", `${coinAmt} coins added!`);
-
   }
 });
 client.on('message', message => {
@@ -170,8 +169,6 @@ if(cmd === `${prefix}coins`) {
   .setAuthor(message.author.username)
   .setColor("#00FF00")
   .addField("💸", uCoins);
-
-  message.channel.send(coinEmbed).then(msg => {msg.delete(5000)});
-}
+  }
 });
 client.login(process.env.BOT_TOKEN);
