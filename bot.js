@@ -145,6 +145,8 @@ client.on('message', message => {
   .setAuthor(message.author.username)
   .setColor("#5074b3")
   .addField("💸", `${coinAmt} coins added!`);
+    
+    message.channel.send(coinEmbed).then(msg => {msg.delete(5000000000)});
   }
 });
 client.on('message', message => {
@@ -170,7 +172,12 @@ if(cmd === `${prefix}coins`) {
   .setColor("#00FF00")
   .addField("💸", uCoins);
   
-    message.channel.send(coinEmbed).then(msg => {msg.delete(50000000)});
+    message.channel.send(coinEmbed).then(msg => {msg.delete(500000000)});
+  }
+});
+client.on('message', msg => {
+  if (msg.content === '-rip') {
+    msg.reply('https://cdn.discordapp.com/attachments/455762971981905920/478012808739553280/rip.png');
   }
 });
 client.login(process.env.BOT_TOKEN);
