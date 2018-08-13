@@ -55,7 +55,6 @@ client.on('message', message =>{
         }
     };
   });
-const errors = require("../utils/errors.js");
 
 module.exports.run = async (client, message, args) => {
 
