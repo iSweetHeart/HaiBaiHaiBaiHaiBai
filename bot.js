@@ -55,21 +55,42 @@ client.on('message', message =>{
         }
     };
   });
-module.exports.run = async (bot, message, args) =>{
+const errors = require("../utils/errors.js");
 
-  let{body} = await superagent
-     .get(`https://api-to.get-a.life/meme`);
+module.exports.run = async (client, message, args) => {
 
-  let dEmbed = new Discord.RichEmbed()
-  .setColor("#ff9900")
-  .setTitle("Meme :joy:")
-  .setImage(body.url);
 
-  message.channel.send(dEmbed);
+    const Discord = require("discord.js");
+    const superagent = require("superagent");
+    
+    exports.run = async (bot, message, args) => {
+    
+        let hugUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
+        if(!hugUser) return message.channel.send("Make sure you mention someone!");
+    
+        const {body} = await superagent
+        .get(`https://nekos.life/api/v2/img/hug`);
+    
+        let hugEmbed = new Discord.RichEmbed()
+        .setTitle("Hug! c:")
+        .setDescription(`**${message.author.username}** hugged **${message.mentions.users.first().username}**!`)
+        .setImage(body.url)
+        .setColor("RANDOM")
+        .setFooter("Bot Version: 0.0.4", bot.user.displayAvatarURL);
+    
+        message.channel.send(hugEmbed)
+    
+    }
+
+
+
+
+
+
 
 }
 
 module.exports.help = {
-  name: "meme"
+  name: "hug"
 }
 client.login(process.env.BOT_TOKEN);
