@@ -92,4 +92,8 @@ module.exports.run = async (client, message, args) => {
 module.exports.help = {
   name: "hug"
 }
+client.on('ready', () => {
+     client.user.setActivity("You",{type: 'WATCHING'});
+
+});
 client.login(process.env.BOT_TOKEN);
