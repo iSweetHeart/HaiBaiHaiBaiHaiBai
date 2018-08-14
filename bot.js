@@ -60,7 +60,7 @@ client.on('ready', () => {
 
 });
 client.on('message' , async (message) => {
- if (message.content.startsWith(prefix + 'ques')) {
+ if (message.content.startsWith('-ques')) {
 
 let color = '0xffffff'
 
