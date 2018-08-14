@@ -59,5 +59,20 @@ client.on('ready', () => {
      client.user.setActivity("YOU",{type: 'WATCHING'});
 
 });
+client.on('message' , async (message) => {
+ if (message.content.startsWith(prefix + 'ques')) {
 
+let color = '0xffffff'
+
+      const { body } = await superagent
+    .get('https://yesno.wtf/api/');
+    if(body.answer === 'yes') color = '0x01DF01';
+    if(body.answer === 'no') color = '0xFF0000';
+    const embed = new Discord.RichEmbed()
+    .setColor(color)
+    .setImage(`${body.image}`)
+    message.channel.send(`**The magic API says:** **${body.answer}**`, {embed});
+
+}
+});
 client.login(process.env.BOT_TOKEN);
