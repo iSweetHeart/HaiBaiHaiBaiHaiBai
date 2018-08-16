@@ -131,4 +131,32 @@ client.on('message', message => {
         }, 1000)
     }
 });
+client.on('message', message => {
+  if(message.content.startsWith ("-marry")) {
+  if(!message.channel.guild) return message.reply('** This command only for servers **')
+  var proposed = message.mentions.members.first()
+ 
+  if(!message.mentions.members.first()) return message.reply(' 😏 **u must mention someone !**').catch(console.error);
+  if(message.mentions.users.size > 1) return message.reply(' 😳 **Choose One Only**').catch(console.error);
+   if(proposed === message.author) return message.reply(`**Woman ? **`);
+    if(proposed === client.user) return message.reply(`** Do U want to marry me ? **`);
+          message.channel.send(`**${proposed} 
+Want To Accept ? ${message.author} 
+u Have 15 sec !  
+Type Yes Or No**`)
+
+const filter = m => m.content.startsWith("Yes");
+message.channel.awaitMessages(filter, { max: 1, time: 15000, errors: ['time'] })
+.then(collected =>{ 
+message.channel.send(` **${message.author} and ${proposed} Congrats :heart: , have a nice time togther :heart:** `);
+})
+
+const filte = m => m.content.startsWith("No");
+message.channel.awaitMessages(filte, { max: 1, time: 15000, errors: ['time'] })
+.then(collected =>{ 
+message.channel.send(`  **${message.author} Oh.. Sorry She Didnt Accept..** `);
+})
+    
+}
+});
 client.login(process.env.BOT_TOKEN);
