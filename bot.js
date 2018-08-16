@@ -154,7 +154,7 @@ message.channel.send(` **${message.author} and ${proposed} Congrats :heart: , ha
 const filte = m => m.content.startsWith("No");
 message.channel.awaitMessages(filte, { max: 1, time: 15000, errors: ['time'] })
 .then(collected =>{ 
-message.channel.send(`  **${message.author} Oh.. Sorry She Didnt Accept..** `);
+message.channel.send(`  **${message.author} Oh.. Sorry ${proposed} Didnt Accept..** `);
 })
     
 }
